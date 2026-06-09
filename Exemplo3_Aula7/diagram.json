@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -3, "left": -45.2, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -158.36, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 76.7,
+      "left": 3.5,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "btn1:1.l", "bb1:8t.c", "", [ "$bb" ] ],
+    [ "btn1:2.l", "bb1:6t.c", "", [ "$bb" ] ],
+    [ "btn1:1.r", "bb1:8b.h", "", [ "$bb" ] ],
+    [ "btn1:2.r", "bb1:6b.h", "", [ "$bb" ] ],
+    [ "esp:2", "bb1:6b.i", "green", [ "h0" ] ],
+    [ "bb1:8b.i", "esp:GND.3", "green", [ "v-9.6", "h-96" ] ]
+  ],
+  "dependencies": {}
+}
